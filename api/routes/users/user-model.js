@@ -7,12 +7,12 @@ function find() {
 }
 
 function findBy(filter) {
-  return db("users").where(filer).select("id", "username", "password")
+  return db("users").where(filter).select("id", "username", "password")
 }
 
 async function add(user) {
   user.password = await bcrypt.hash(user.password, 14)
-  const [id] = await db("users").insiert(user)
+  const [id] = await db("users").insert(user)
 
   return findById(id)
 }

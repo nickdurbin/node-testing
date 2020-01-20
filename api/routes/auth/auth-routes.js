@@ -17,13 +17,13 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   try {
     const { username, password } = req.body
-    const user = await (await Users.findBy({ username })).first()
+    const user = await Users.findBy({ username }).first()
     const passwordValid = await bcrypt.compare(password, user.password)
 
     if (user && passwordValid) {
       const token = generateToken(user);
       res.status(200).json({ 
-        message: `Welcome, ${user.username}!`})
+        message: `Welcome, ${user.username}!`, token})
     } else {
       res.status(401).json({ message: "Please try to login again!"})
     }

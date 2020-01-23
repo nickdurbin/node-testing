@@ -28,11 +28,11 @@ describe("users-model", () => {
 
     test("findById", async () => {
       const res = await Users.findById(1)
-      expect(res.username).toBe("userNick")
+      expect(res.username).toBe("ndurbin")
     })
 
     test("update", async () => {
-      await Users.update(1, { username: "userDurb" })
+      await Users.update(1, { username: "ndurbin" })
       const user = await Users.findById(1)
       expect(user.username).toBe("userDurb")
     })

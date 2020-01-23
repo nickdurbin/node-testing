@@ -13,7 +13,7 @@ test("get user list", async () => {
   expect(res.type).toBe("application/json")
   expect(res.body.length).toBeGreaterThan(0)
   expect(res.body[0].id).toBe(1)
-  expect(res.body[0].username).toBe("userNick")
+  expect(res.body[0].username).toBe("ndurbin")
 })
 
 test("create a user route", async () => {
@@ -22,5 +22,5 @@ test("create a user route", async () => {
     .send({ username: "userGeorge" })
   expect(res.status).toBe(201)
   expect(res.type).toBe("application/json")
-  expect(res.body).toEqual({ id: 3, username: "userGeorge" })
+  expect(res.body).toEqual({ id: 5, username: "userGeorge" })
 })
